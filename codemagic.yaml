@@ -7,11 +7,8 @@ workflows:
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
-      - name: Generate Gradle Wrapper
-        script: |
-          gradle wrapper
       - name: Build Android APK
         script: |
-          ./gradlew assembleRelease
+          gradle assembleRelease --stacktrace
     artifacts:
       - app/build/outputs/apk/**/*.apk
